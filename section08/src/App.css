@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.app{
+    border-radius: 16px;
+    background-color: rgb(238, 238, 238);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 500px;
+    gap: 24px;
+
+}
+
+.header{
+    .text{
+        font-size: 18px;
+    }
+
+    .date{
+        color: tomato;
+        font-weight: 700;;
+        font-size: 28px;
+    }
+}
+
+.editor{
+    display: flex;
+    gap: 8px;
+
+    input{
+        flex: 1;
+        height: 40px;
+        padding: 0 6px;
+        outline: none;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+    }
+
+    button{
+        height: 40px;
+        width: 40px;
+        cursor: pointer;
+        border: 0;
+        background-color: rgb(81, 168, 255);
+        color: white;
+        border-radius: 4px;
+    }
+}
+
+.list{
+    input{
+        width: 100%;
+        padding: 15px 0;
+        border: 0;
+        background-color: transparent;
+        border-bottom: 1px solid rgb(220, 220, 220);
+        outline: none;
+    }
+}
+
+.list-item{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    input{
+        width: 20px;
+    }
+
+    .text{
+        flex: 1;
+    }
+}

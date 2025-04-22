@@ -1,0 +1,16 @@
+.todo {
+	margin: 0 auto;
+	max-width: 600px;
+	background-color: rgba(248, 248, 236, 0.685);
+}
+
+.header {
+	margin-bottom: 20px;
+}
+
+.editor {
+	margin-bottom: 20px;
+}
+
+.list {
+}
