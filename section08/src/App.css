@@ -36,7 +36,7 @@
         flex: 1;
         height: 40px;
         padding: 0 6px;
-        outline: none;
+        /* outline: none; */
         border: 1px solid #e0e0e0;
         border-radius: 4px;
     }

@@ -1,23 +1,24 @@
-import React from 'react';
+import React from "react";
 
-export default function TodoItem({todo, updateTodo, deleteTodo}) {
-    const { id, text, date, state } = todo
+export default function TodoItem({ todo, updateTodo, deleteTodo }) {
+	const { id, text, date, state } = todo;
 
-    const onClickDeleteButton = (todo) => {
-        deleteTodo(todo)
-    }
+	const onClickDeleteButton = () => {
+		deleteTodo(id);
+	};
 
-    const onChangeCheckbox = (todo) => {
-        updateTodo({...todo, state:!todo.state})
-    }
+	const onChangeCheckbox = () => {
+		updateTodo({ ...todo, state: !todo.state });
+	};
 
-    return (
-        <li className='list-item'>
-            <input type="checkbox" checked={state} onChange={()=>{onChangeCheckbox(todo)}}/>
-            <span className='text'>{text}</span>
-            <span className='date'>{date}</span>
-            <button type='button' onClick={()=>{onClickDeleteButton(todo)}}>delete</button>
-        </li>
-    );
+	return (
+		<li className="list-item">
+			<input type="checkbox" checked={state} onChange={onChangeCheckbox} />
+			<span className="text">{text}</span>
+			<span className="date">{new Date(date).toLocaleDateString()}</span>
+			<button type="button" onClick={onClickDeleteButton}>
+				delete
+			</button>
+		</li>
+	);
 }
-

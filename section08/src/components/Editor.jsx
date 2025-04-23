@@ -1,24 +1,48 @@
-import { useState,useRef } from "react";
+import { useState, useRef } from "react";
 
-export default function Editor({ addTodo}) {
-    const [text, setText] = useState('')
-    const idRef = useRef(0)
+export default function Editor({ addTodo }) {
+	const [text, setText] = useState("");
+	const idRef = useRef(0);
+	const textRef = useRef();
 
-    const onChangeInput = (e) => {
-        setText(e.target.value)
-    }
+	const onChangeInput = (e) => {
+		setText(e.target.value);
+	};
 
-    const handleSubmit = () => {
-        addTodo({ id:idRef.current++, text, date: new Date().getTime(), state: false })
-        setText('')
+	const handleSubmit = () => {
+		if (text === "") {
+			textRef.current.focus();
+			return;
+		}
 
-    }
+		addTodo({
+			id: idRef.current++,
+			text,
+			date: new Date().getTime(),
+			state: false,
+		});
+		setText("");
+	};
 
-    return (
-        <div className="editor">
-            <input type="text" placeholder="Todo" onChange={onChangeInput} value={text}/>
-            <button type="button" onClick={handleSubmit}>Add</button>
-        </div>
-    );
+	const onKeyDown = (e) => {
+		if (e.keyCode === 13) {
+			handleSubmit();
+		}
+	};
+
+	return (
+		<div className="editor">
+			<input
+				type="text"
+				placeholder="Todo"
+				ref={textRef}
+				onChange={onChangeInput}
+				onKeyDown={onKeyDown}
+				value={text}
+			/>
+			<button type="button" onClick={handleSubmit}>
+				Add
+			</button>
+		</div>
+	);
 }
-
