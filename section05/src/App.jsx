@@ -2,6 +2,8 @@ import Button from './components/Button';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Main from './components/Main';
+import Register from './components/Register';
+import State from './components/State';
 
 function App() {
   const buttonProps = {
@@ -11,15 +13,8 @@ function App() {
 
   return (
     <>
-      <Header />
-      <Main />
-      <Footer />
-      <Button text={'메일'} />
-      <Button text={'카페'} />
-      <Button {...buttonProps} />
-      <Button>
-        <span>자식자식</span>
-      </Button>
+      {/* <State /> */}
+      <Register />
     </>
   );
 }
