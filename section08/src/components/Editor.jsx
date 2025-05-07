@@ -1,32 +1,33 @@
 import { useState, useRef } from "react";
+import { uuid4 } from "uuid4";
 
 export default function Editor({ addTodo }) {
 	const [text, setText] = useState("");
-	const idRef = useRef(0);
 	const textRef = useRef();
 
 	const onChangeInput = (e) => {
 		setText(e.target.value);
 	};
 
-	const handleSubmit = () => {
-		if (text === "") {
+	const onClickButton = () => {
+		if (text.trim() === "") {
+			setText("");
 			textRef.current.focus();
 			return;
 		}
 
 		addTodo({
-			id: idRef.current++,
+			id: uuid4(),
 			text,
 			date: new Date().getTime(),
-			state: false,
+			status: false,
 		});
 		setText("");
 	};
 
 	const onKeyDown = (e) => {
-		if (e.keyCode === 13) {
-			handleSubmit();
+		if (e.key === "Enter") {
+			onClickButton();
 		}
 	};
 
@@ -40,7 +41,7 @@ export default function Editor({ addTodo }) {
 				onKeyDown={onKeyDown}
 				value={text}
 			/>
-			<button type="button" onClick={handleSubmit}>
+			<button type="button" onClick={onClickButton}>
 				Add
 			</button>
 		</div>
