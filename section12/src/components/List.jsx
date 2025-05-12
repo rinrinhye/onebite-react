@@ -17,7 +17,7 @@ export default function List({ data }) {
 
 	const getSortedData = () => {
 		return data.toSorted((a, b) => {
-			if (sortType === "oldest") {
+			if (sortType === "오래된 순") {
 				return Number(a.createdDate) - Number(b.createdDate);
 			} else {
 				Number(b.createdDate) - Number(a.createdDate);
