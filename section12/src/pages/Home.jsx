@@ -52,16 +52,16 @@ export default function Home() {
 				).padStart(2, "0")}`}
 				leftChild={
 					<Button
-						text={<SlArrowLeft />}
+						text={<SlArrowLeft size={16} />}
 						onClick={onDecreaseMonth}
-						a11yText={"prev"}
+						a11yText={"이전 달 보기"}
 					/>
 				}
 				rightChild={
 					<Button
-						text={<SlArrowRight />}
+						text={<SlArrowRight size={16} />}
 						onClick={onIncreaseMonth}
-						a11yText={"next"}
+						a11yText={"다음 달 보기"}
 					/>
 				}
 			/>

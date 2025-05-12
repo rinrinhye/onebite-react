@@ -7,14 +7,16 @@ export default function ListItem({ diary }) {
 	const navigate = useNavigate();
 
 	return (
-		<li>
+		<li className="list-item">
 			<Link to={`/diary/${id}`}>
-				<div>
+				<div className={`image__emotion image__emotion--${emotionId}`}>
 					<img src={getEmotionImage(emotionId)} alt="" />
 				</div>
-				<div>
-					<span>{new Date(createdDate).toLocaleString()}</span>
-					<p>{content}</p>
+				<div className="text-wrap">
+					<span className="date">
+						{new Date(createdDate).toLocaleDateString()}
+					</span>
+					<p className="text">{content}</p>
 				</div>
 				<Button text={"수정하기"} onClick={() => navigate(`/edit/${id}`)} />
 			</Link>

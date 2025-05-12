@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 import ListItem from "./ListItem";
+import CustomSelect from "./CustomSelect";
 
 export default function List({ data }) {
 	const [sortType, setSortType] = useState("latest");
@@ -25,23 +26,20 @@ export default function List({ data }) {
 	const sortedData = getSortedData();
 
 	return (
-		<>
-			<div>
-				<select onChange={onChangeSortType}>
-					<option value="latest">최신순</option>
-					<option value="oldest">오래된 순</option>
-				</select>
+		<div className="content">
+			<div className="button-wrap">
+				<CustomSelect />
 				<Button
 					text={"새 일기쓰기"}
 					color={"green"}
 					onClick={() => nav("/write")}
 				/>
 			</div>
-			<ul>
+			<ul className="list__diary">
 				{sortedData.map((diary) => {
 					return <ListItem key={diary.id} diary={diary} />;
 				})}
 			</ul>
-		</>
+		</div>
 	);
 }

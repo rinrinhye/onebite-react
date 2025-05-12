@@ -6,7 +6,7 @@ export default function Button({ text, color, onClick, a11yText }) {
 			onClick={onClick}
 		>
 			{text}
-			{a11yText !== null ? <span className="sr-only">{a11yText}</span> : null}
+			{a11yText && <span className="sr-only">{a11yText}</span>}
 		</button>
 	);
 }
