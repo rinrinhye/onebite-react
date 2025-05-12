@@ -4,13 +4,15 @@ import Button from "./Button";
 import ListItem from "./ListItem";
 import CustomSelect from "./CustomSelect";
 
+const listArray = ["최신순", "오래된 순"];
+
 export default function List({ data }) {
-	const [sortType, setSortType] = useState("latest");
+	const [sortType, setSortType] = useState(listArray[0]);
 
 	const nav = useNavigate();
 
-	const onChangeSortType = (e) => {
-		setSortType(e.target.value);
+	const onChangeSortType = (v) => {
+		setSortType(v);
 	};
 
 	const getSortedData = () => {
@@ -28,7 +30,11 @@ export default function List({ data }) {
 	return (
 		<div className="content">
 			<div className="button-wrap">
-				<CustomSelect />
+				<CustomSelect
+					onChange={onChangeSortType}
+					sortType={sortType}
+					listArray={listArray}
+				/>
 				<Button
 					text={"새 일기쓰기"}
 					color={"green"}

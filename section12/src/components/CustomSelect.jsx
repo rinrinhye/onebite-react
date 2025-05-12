@@ -1,17 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
-import { SlArrowDown, SlArrowRight } from "react-icons/sl";
+import { SlArrowDown } from "react-icons/sl";
 
-const values = ["최신순", "오래된 순"];
-
-export default function CustomSelect() {
+export default function CustomSelect({ sortType, onChange, listArray }) {
 	const [isOpen, setIsOpen] = useState(false);
-	const [selected, setSelected] = useState(values[0]);
 	const wrapperRef = useRef();
 
 	const toggleDropdown = () => setIsOpen((prev) => !prev);
 
 	const handleSelectedButton = (v) => {
-		setSelected(v);
+		onChange(v);
 		toggleDropdown();
 	};
 
@@ -28,13 +25,13 @@ export default function CustomSelect() {
 	}, []);
 
 	return (
-		<div className="box__dropdown" ref={wrapperRef}>
+		<div className="box__dropdown" ref={wrapperRef} onChange={onChange}>
 			<button type="button" onClick={toggleDropdown}>
-				{selected} <SlArrowDown size={8} style={{ marginLeft: "4px" }} />
+				{sortType} <SlArrowDown size={8} style={{ marginLeft: "4px" }} />
 			</button>
 			{isOpen && (
 				<ul className="list">
-					{values.map((v, i) => (
+					{listArray.map((v, i) => (
 						<li className="list-item" key={i}>
 							<button
 								type="button"
