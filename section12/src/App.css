@@ -3,6 +3,18 @@
 	src: url("/fonts/NanumGothic.ttf");
 }
 
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
 body {
 	font-family: "NanumGothic";
 	margin: 20px;
@@ -18,4 +30,26 @@ body {
 
 .header {
 	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #e0e0e0;
+	padding: 16px 20px;
+}
+
+/* 버튼 */
+.button {
+	border-radius: 6px;
+	padding: 4px 8px;
+	background-color: #e0e0e0;
+	border: 0;
+	cursor: pointer;
+}
+
+.button--green {
+	background-color: green;
+	color: white;
+}
+
+.button--red {
+	background-color: tomato;
+	color: white;
 }
