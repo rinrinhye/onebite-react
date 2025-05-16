@@ -6,6 +6,8 @@ export default function ListItem({ diary }) {
 	const { id, emotionId, createdDate, content } = diary;
 	const navigate = useNavigate();
 
+	console.log(emotionId);
+
 	return (
 		<li className="list-item">
 			<Link to={`/diary/${id}`}>
@@ -18,8 +20,8 @@ export default function ListItem({ diary }) {
 					</span>
 					<p className="text">{content}</p>
 				</div>
-				<Button text={"수정하기"} onClick={() => navigate(`/edit/${id}`)} />
 			</Link>
+			<Button text={"수정하기"} onClick={() => navigate(`/edit/${id}`)} />
 		</li>
 	);
 }

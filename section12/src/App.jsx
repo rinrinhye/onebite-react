@@ -34,7 +34,7 @@ function reducer(state, action) {
 			return state.map((diary) => (diary.id === data.id ? data : diary));
 
 		case "DELETE":
-			return state.filter((diary) => diary.id !== type);
+			return state.filter((diary) => diary.id !== data);
 
 		default:
 			return state;
@@ -44,23 +44,23 @@ function reducer(state, action) {
 export default function App() {
 	const [state, dispatch] = useReducer(reducer, mockData);
 
-	const onAdd = () => {
+	const onAdd = (item) => {
 		dispatch({
 			type: "ADD",
 			data: {
 				id: uuidv4(),
-				createdDate: new Date().getTime(),
-				emotionId,
-				content,
+				emotionId: item.emotionId,
+				content: item.content,
+				createdDate: item.createdDate.getTime(0),
 			},
 		});
 	};
 
-	const onEdit = () => {
-		dispatch({ type: "EDIT", data: editedDiary });
+	const onEdit = (item) => {
+		dispatch({ type: "EDIT", data: item });
 	};
 
-	const onDelete = () => {
+	const onDelete = (id) => {
 		dispatch({ type: "DELETE", data: id });
 	};
 
