@@ -1,48 +1,62 @@
 import { Outlet } from "react-router-dom";
-import { useMemo, useReducer } from "react";
+import { useEffect, useMemo, useReducer, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { stateContext, dispatchContext } from "./contexts/context";
 
-const mockData = [
-	{
-		id: uuidv4(),
-		createdDate: new Date("2025-05-08").getTime(),
-		emotionId: 1,
-		content: "오늘의 기분 꺅꺅꺅",
-	},
-	{
-		id: uuidv4(),
-		createdDate: new Date("2025-05-07").getTime(),
-		emotionId: 2,
-		content: "오늘의 기분 우우우",
-	},
-	{
-		id: uuidv4(),
-		createdDate: new Date("2025-04-08").getTime(),
-		emotionId: 3,
-		content: "오늘의 기분 soso",
-	},
-];
-
 function reducer(state, action) {
+	let nextState;
+
 	const { type, data } = action;
 	switch (type) {
-		case "ADD":
-			return [data, ...state];
+		case "INIT":
+			return data;
+		case "ADD": {
+			nextState = [data, ...state];
+			break;
+		}
 
-		case "EDIT":
-			return state.map((diary) => (diary.id === data.id ? data : diary));
+		case "EDIT": {
+			nextState = state.map((diary) => (diary.id === data.id ? data : diary));
+			break;
+		}
 
-		case "DELETE":
-			return state.filter((diary) => diary.id !== data);
+		case "DELETE": {
+			nextState = state.filter((diary) => diary.id !== data);
+			break;
+		}
 
 		default:
 			return state;
 	}
+
+	localStorage.setItem("diary", JSON.stringify(nextState));
+
+	return nextState;
 }
 
 export default function App() {
-	const [state, dispatch] = useReducer(reducer, mockData);
+	const [isLoading, setIsLoading] = useState(true);
+	const [state, dispatch] = useReducer(reducer, []);
+
+	useEffect(() => {
+		const storedData = localStorage.getItem("diary");
+
+		if (!storedData) {
+			setIsLoading(false);
+			return;
+		}
+
+		const parsedData = JSON.parse(storedData);
+
+		if (!Array.isArray(parsedData)) {
+			setIsLoading(false);
+			return;
+		}
+
+		dispatch({ type: "INIT", data: parsedData });
+
+		setIsLoading(false);
+	}, []);
 
 	const onAdd = (item) => {
 		dispatch({
@@ -67,6 +81,10 @@ export default function App() {
 	const memoizedDispatch = useMemo(() => {
 		return { onAdd, onEdit, onDelete };
 	}, []);
+
+	if (isLoading) {
+		return <div>로딩 중...</div>;
+	}
 
 	return (
 		<div>
