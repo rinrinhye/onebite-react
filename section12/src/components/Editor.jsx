@@ -4,6 +4,7 @@ import EmotionItem from "./EmotionItem";
 import { useEffect, useState } from "react";
 import { emotionList } from "../util/constants";
 import { getStringedDate } from "../util/get-stringed-date";
+import "./Editor.css";
 
 export default function Editor({ initData, onSubmit }) {
 	const [input, setInput] = useState({
@@ -43,9 +44,9 @@ export default function Editor({ initData, onSubmit }) {
 	};
 
 	return (
-		<div className="">
-			<div className="">
-				<p>오늘의 날짜</p>
+		<div className="content content__editor">
+			<div className="box__date">
+				<p className="title">오늘의 날짜</p>
 				<input
 					type="date"
 					name="createdDate"
@@ -54,7 +55,7 @@ export default function Editor({ initData, onSubmit }) {
 				/>
 			</div>
 			<div className="box__emotion">
-				<p>오늘의 감정</p>
+				<p className="title">오늘의 감정</p>
 				<div className="emotion-list">
 					{emotionList.map((item, index) => (
 						<EmotionItem
@@ -66,8 +67,8 @@ export default function Editor({ initData, onSubmit }) {
 					))}
 				</div>
 			</div>
-			<div className="">
-				<p>오늘의 일기</p>
+			<div className="box__diary">
+				<p className="title">오늘의 일기</p>
 				<textarea
 					className="textarea"
 					name="content"
@@ -78,7 +79,7 @@ export default function Editor({ initData, onSubmit }) {
 					}}
 				></textarea>
 			</div>
-			<div className="box__button">
+			<div className="button-wrap">
 				<Button text={"취소하기"} onClick={() => nav(-1)} />
 				<Button
 					text={"작성완료"}

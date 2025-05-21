@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SlArrowDown } from "react-icons/sl";
+import "./CustomSelect.css";
 
 export default function CustomSelect({ sortType, onChange, listArray }) {
 	const [isOpen, setIsOpen] = useState(false);

@@ -47,219 +47,23 @@ body {
 #root {
 	background-color: white;
 	max-width: 600px;
-	margin: 0 auto;
 	min-height: 800px;
+	margin: 0 auto;
 	box-shadow: rgba(100, 100, 100, 0.2) 0 0 29px 0;
 }
 
-/* 헤더 */
-.header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	border-bottom: 1px solid #e0e0e0;
-	padding: 16px 20px;
-
-	.title {
-		font-size: 24px;
-	}
-
-	.header__left {
-	}
-
-	.header__right {
-	}
-}
-
-/* 버튼 */
-.button {
-	border-radius: 8px;
-	background-color: #eee;
-	padding: 16px 20px;
-	border: 0;
-	cursor: pointer;
-}
-
-.button--green {
-	background-color: #64c964;
-	color: white;
-}
-
-.button--red {
-	background-color: tomato;
-	color: white;
-}
-
-/* 홈 컨텐트 */
+/* 공통 */
 
 .content {
 	padding: 0 20px;
-
-	.button-wrap {
-		display: flex;
-		gap: 8px;
-		margin: 16px 0;
-
-		.box__dropdown {
-			position: relative;
-			width: 120px;
-			border-radius: 6px;
-
-			button {
-				border: 0;
-				width: 100%;
-				height: 100%;
-			}
-
-			> button {
-				border-radius: 6px;
-			}
-
-			.list {
-				position: absolute;
-				bottom: -96px;
-				width: 100%;
-
-				.list-item {
-					height: 48px;
-					overflow: hidden;
-					border-top: 1px solid #dadada;
-
-					&:last-child {
-						border-bottom-left-radius: 6px;
-						border-bottom-right-radius: 6px;
-					}
-				}
-			}
-		}
-
-		.button {
-			flex: 1;
-		}
-	}
-
-	.list-item {
-		border-bottom: 1px solid #eee;
-
-		a {
-			display: flex;
-			gap: 20px;
-			align-items: flex-start;
-			justify-content: space-between;
-			padding: 16px 0;
-		}
-
-		.text-wrap {
-			flex: 1;
-		}
-
-		.date {
-			font-size: 18px;
-			font-weight: 500;
-		}
-
-		.text {
-			font-size: 14px;
-			margin-top: 4px;
-		}
-
-		.image__emotion {
-			width: 120px;
-			height: 80px;
-			border-radius: 8px;
-
-			img {
-				width: 100%;
-				height: 100%;
-				object-fit: contain;
-			}
-		}
-
-		.image__emotion--1 {
-			background-color: var(--color-emotion-01);
-		}
-
-		.image__emotion--2 {
-			background-color: var(--color-emotion-02);
-		}
-
-		.image__emotion--3 {
-			background-color: var(--color-emotion-03);
-		}
-
-		.image__emotion--4 {
-			background-color: var(--color-emotion-04);
-		}
-
-		.image__emotion--5 {
-			background-color: var(--color-emotion-05);
-		}
-	}
 }
 
-/* write  */
-.box__emotion {
-}
-
-.emotion-list {
+.button-wrap {
 	display: flex;
-	gap: 16px;
-	justify-content: center;
+	gap: 8px;
+	margin: 16px 0;
 
-	.button__emotion {
-		width: 96px;
-		background-color: rgb(236, 236, 236);
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		cursor: pointer;
-		padding: 16px 0;
-		border-radius: 6px;
-		border: 0;
-
-		&:nth-child(1).is-active {
-			background-color: var(--color-emotion-01);
-			color: white;
-		}
-
-		&:nth-child(2).is-active {
-			background-color: var(--color-emotion-02);
-			color: white;
-		}
-
-		&:nth-child(3).is-active {
-			background-color: var(--color-emotion-03);
-			color: white;
-		}
-
-		&:nth-child(4).is-active {
-			background-color: var(--color-emotion-04);
-			color: white;
-		}
-
-		&:nth-child(5).is-active {
-			background-color: var(--color-emotion-05);
-			color: white;
-		}
+	.button {
+		flex: 1;
 	}
-
-	.image__emotion {
-		width: 36px;
-		pointer-events: none;
-		margin-bottom: 8px;
-	}
-
-	.text__emotion {
-		pointer-events: none;
-	}
-}
-
-.textarea {
-	background-color: rgb(236, 236, 236);
-	border: 0;
-	border-radius: 6px;
-	padding: 20px;
-	width: 100%;
-	min-height: 200px;
-	resize: none;
 }

@@ -28,7 +28,7 @@ export default function List({ data }) {
 	const sortedData = getSortedData();
 
 	return (
-		<div className="content">
+		<div className="content content__home">
 			<div className="button-wrap">
 				<CustomSelect
 					onChange={onChangeSortType}

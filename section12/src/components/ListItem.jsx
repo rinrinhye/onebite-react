@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import Button from "./Button";
 import { getEmotionImage } from "../util/get-emotion-image";
+import "./ListItem.css";
 
 export default function ListItem({ diary }) {
 	const { id, emotionId, createdDate, content } = diary;
@@ -19,7 +20,11 @@ export default function ListItem({ diary }) {
 					<p className="text">{content}</p>
 				</div>
 			</Link>
-			<Button text={"수정하기"} onClick={() => navigate(`/edit/${id}`)} />
+			<Button
+				text={"수정하기"}
+				className={"edit"}
+				onClick={() => navigate(`/edit/${id}`)}
+			/>
 		</li>
 	);
 }

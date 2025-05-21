@@ -87,12 +87,12 @@ export default function App() {
 	}
 
 	return (
-		<div>
+		<>
 			<stateContext.Provider value={state}>
 				<dispatchContext.Provider value={memoizedDispatch}>
 					<Outlet />
 				</dispatchContext.Provider>
 			</stateContext.Provider>
-		</div>
+		</>
 	);
 }

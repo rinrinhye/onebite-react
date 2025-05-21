@@ -1,0 +1,57 @@
+.content__record {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	gap: 80px;
+	margin-top: 40px;
+
+	.title {
+		font-size: 18px;
+		font-weight: 500;
+		margin-bottom: 30px;
+	}
+
+	.emotion-wrap {
+		width: 250px;
+		height: 250px;
+		border-radius: 6px;
+
+		span {
+			display: block;
+			color: white;
+			font-weight: 500;
+			margin-top: 40px;
+		}
+	}
+
+	.box__diary {
+		.text {
+			width: 550px;
+			min-height: 200px;
+			padding: 16px;
+			border-radius: 8px;
+			background-color: rgb(243, 243, 243);
+		}
+	}
+}
+
+.emotion-wrap--1 {
+	background-color: var(--color-emotion-01);
+}
+
+.emotion-wrap--2 {
+	background-color: var(--color-emotion-02);
+}
+
+.emotion-wrap--3 {
+	background-color: var(--color-emotion-03);
+}
+
+.emotion-wrap--4 {
+	background-color: var(--color-emotion-04);
+}
+
+.emotion-wrap--5 {
+	background-color: var(--color-emotion-05);
+}
