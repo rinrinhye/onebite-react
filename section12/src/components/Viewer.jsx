@@ -3,9 +3,6 @@ import { emotionList } from "../util/constants";
 
 const Viewer = ({ emotionId, content }) => {
 	const emotionItem = emotionList.find((item) => item.emotionId === emotionId);
-	console.log(emotionList);
-
-	console.log(emotionItem);
 
 	return (
 		<div className="viewer">

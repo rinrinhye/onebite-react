@@ -4,6 +4,7 @@ import Button from "../components/Button";
 import List from "../components/List";
 import { useStateContext } from "../contexts/context";
 import { SlArrowRight, SlArrowLeft } from "react-icons/sl";
+import usePageTitle from "../hooks/usePageTitle";
 
 const getMonthlyData = (pivotDate, data) => {
 	const beginTime = new Date(
@@ -31,6 +32,7 @@ const getMonthlyData = (pivotDate, data) => {
 
 export default function Home() {
 	const [pivotDate, setPivotDate] = useState(new Date());
+	usePageTitle("감정 일기장");
 
 	const data = useStateContext();
 

@@ -4,10 +4,12 @@ import Editor from "../components/Editor";
 import Header from "../components/Header";
 import { SlArrowLeft } from "react-icons/sl";
 import { useDispatchContext } from "../contexts/context";
+import usePageTitle from "../hooks/usePageTitle";
 
 export default function Write() {
 	const nav = useNavigate();
 	const { onAdd } = useDispatchContext();
+	usePageTitle("새 일기 쓰기");
 
 	const onSubmit = (input) => {
 		onAdd(input);

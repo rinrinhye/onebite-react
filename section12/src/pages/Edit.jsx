@@ -5,10 +5,12 @@ import { SlArrowLeft } from "react-icons/sl";
 import Editor from "../components/Editor";
 import { useDispatchContext } from "../contexts/context";
 import useDiary from "../hooks/useDiary";
+import usePageTitle from "../hooks/usePageTitle";
 
 export default function Edit() {
 	const params = useParams();
 	const nav = useNavigate();
+	usePageTitle("일기 수정하기");
 
 	const { onDelete, onEdit } = useDispatchContext();
 

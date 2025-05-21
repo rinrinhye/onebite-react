@@ -27,8 +27,6 @@ export default function Editor({ initData, onSubmit }) {
 		let name = e.target.name;
 		let value = e.target.value;
 
-		console.log(emotionId);
-
 		if (name === "createdDate") {
 			value = new Date(value);
 		}

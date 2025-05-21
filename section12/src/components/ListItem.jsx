@@ -6,8 +6,6 @@ export default function ListItem({ diary }) {
 	const { id, emotionId, createdDate, content } = diary;
 	const navigate = useNavigate();
 
-	console.log(emotionId);
-
 	return (
 		<li className="list-item">
 			<Link to={`/diary/${id}`}>
