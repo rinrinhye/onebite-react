@@ -2,9 +2,9 @@ import { createContext, useState } from "react";
 import { Outlet } from "react-router-dom";
 
 const list = [
-	{ id: 1, createdData: Date.now(), emotionId: "", content: "히히" },
-	{ id: 1, createdData: Date.now(), emotionId: "", content: "하하" },
-	{ id: 1, createdData: Date.now(), emotionId: "", content: "호호" },
+	{ id: 1, createdDate: Date.now(), emotionId: "", content: "히히" },
+	{ id: 2, createdDate: Date.now(), emotionId: "", content: "하하" },
+	{ id: 3, createdDate: Date.now(), emotionId: "", content: "호호" },
 ];
 
 export const Context = createContext();
